@@ -14,17 +14,18 @@ public class OptimisticLockingExample {
 		
 		  entityManager.getTransaction().begin();
 		  
-		  Employee insertEmployee = new Employee(); insertEmployee.setName("John Doe");
-		  insertEmployee.setSalary(50000.0); insertEmployee.setVersion(1);
+		  Employee insertEmployee = new Employee();
+	          insertEmployee.setName("John Doe");
+		  insertEmployee.setSalary(50000.0);
+	          insertEmployee.setVersion(1);
 		  entityManager.persist(insertEmployee); // Insert the employee into the
-		 
-		  
+
 		  entityManager.getTransaction().commit();
 		  
 		  entityManager.close();
 		 
 
-        Long employeeId = 6L;
+        Long employeeId = 1L;
 
         Runnable updateTask = () -> {
             entityManager1.getTransaction().begin();
